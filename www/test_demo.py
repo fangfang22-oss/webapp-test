@@ -8,6 +8,7 @@ async def test(loop):
 
     u = User(name='lifangfang', email='fangfangli@example.com',
              passwd='password', image='about:blank')
+    u = User(name='Rambo', email='1434284872@qq.com', passwd='123456', image='about:blank')
     await u.save()
 
 loop = asyncio.get_event_loop()
