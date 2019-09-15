@@ -1,0 +1,9 @@
+.uk-navbar添加这个类到 &lt;nav&gt; 元素中，定义导航栏组件。
+.uk-navbar-nav	添加这个类到 &lt;ul&gt; 元素来创建导航。使用 &lt;a&gt; 元素作为列表中的菜单项。
+uk-navbar-attached 类来优化附到视图顶部的导航栏样式。比如移除圆角
+.uk-navbar-brand	添加这个类到一个 &lt;a&gt; 或 &lt;div&gt; 元素中，来表示你的品牌
+.uk-parent	添加这个类来表示一个父级菜单项。
+
+添加 .uk-container 类到一个块元素中，为其设置一个最大宽度并将网页的主要内容包装在其中。对于大屏幕采用不同的最大宽度。
+想要将容器居中，使用 .uk-container-center 类。
+添加 .uk-navbar-flip 类到一个 &lt;div&gt; 元素中，将其进行分组并将导航项对齐到导航栏右侧。

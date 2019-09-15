@@ -1,0 +1,45 @@
+第一个版本（出错）：
+async def init(loop):
+    app = web.Application(loop=loop)
+    app.router.add_route('GET', '/', index)
+    srv = await loop.create_server(app.make_handler(), '127.0.0.1', 9000)
+    logging.info('server started at http://127.0.0.1:9000...')
+    return srv
+	
+	# DeprecationWarning: Application.make_handler(...) is deprecated, use AppRunner API instead	
+
+评论里参考的1：
+async def init(loop): 
+	app = web.Application(loop=loop) 
+	app.router.add_route('GET', '/', index) 
+	app_runner = web.AppRunner(app) 
+	await app_runner.setup() 
+	srv = await loop.create_server(app_runner.server, '127.0.0.1', 9000) 
+	logging.info('server started at http://127.0.0.1:9000...') 
+	return srv
+	# 异步的setup方法即调用了app的_make_server()方法
+	# self._server = await self._make_server()，再用server这个属性取得返回的Server对象
+
+评论里参考的2：	
+async def start(app): 
+	runner = AppRunner(app) 
+	await runner.setup() 
+	site = web.TCPSite(runner, 'localhost', 8080) 
+	await site.start()
+
+目前所用版本：	
+async def init(loop):
+    await orm.create_pool(loop=loop, host='127.0.0.1', port=3306, user='www-data', password='password', db='awesome')
+    app = web.Application(middlewares=[
+        logger_factory, response_factory
+    ])
+
+    init_jinja2(app, filters=dict(datetime=datetime_filter))
+    add_routes(app, 'handlers')
+    add_static(app)
+
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, '127.0.0.1', 9000)
+    logging.info('server started at http://127.0.0.1:9000...')
+    await site.start()
