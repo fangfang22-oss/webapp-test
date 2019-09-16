@@ -1,0 +1,21 @@
+搭建开发环境
+python：：：
+1、首先，确认系统安装的Python版本是3.7.x：
+python3 --version
+Python 3.7.0
+
+2、然后，用pip安装开发Web App需要的第三方库：
+异步框架aiohttp：
+pip3 install aiohttp
+
+3、前端模板引擎jinja2：
+pip3 install jinja2
+
+5、MySQL 5.x数据库，从官方网站下载并安装，安装完毕后，请务必牢记root口令。为避免遗忘口令，建议直接把root口令设置为password；
+
+6、MySQL的Python异步驱动程序aiomysql：
+pip3 install aiomysql
+
+mysql：：：
+D:\software\application\professional\mysql\mysql-8.0.11-winx64\bin
+mysql -u root -p

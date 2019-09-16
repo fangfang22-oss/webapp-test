@@ -1,6 +1,5 @@
 #!/usr/bin/env python 
 # -*- coding:utf-8 -*-
-__author__ = 'Michael Liao'
 
 import asyncio, os, inspect, logging, functools
 

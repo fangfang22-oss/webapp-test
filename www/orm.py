@@ -1,6 +1,5 @@
 #!/usr/bin/env python 
 # -*- coding:utf-8 -*-
-__author__ = 'Liao_lifangfang changed'
 
 import asyncio, logging
 

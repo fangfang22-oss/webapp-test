@@ -39,33 +39,38 @@
     <div class="uk-container uk-container-medium" >
     <!--导航栏UI-->
     <nav class="uk-navbar-container" uk-navbar style="background-color:rgba(255,255,255,0);border:none;">
-        <div class="uk-navbar-left uk-margin-medium-top uk-margin-medium-bottom" style="font-size:24px;">
+        <div class="uk-navbar-left uk-margin-medium-top uk-margin-medium-bottom">
             <a class="uk-navbar-item uk-logo uk-margin-left" href="/">
                 <!--此处uk-icon为图标,读者可以选UIkit自带icon,也可以添加自定义icon重新打包uk-icon.js,详见官网Documentation-->
                 <span class="uk-icon uk-margin-small-right" uk-icon="pagekit" ratio="2"></span>
-                 博君一笑
+                 博君一肖
             </a>
             <ul class="uk-navbar-nav">
-                <li data-url="blogs"><a href="/">日志</a></li>
-                <li><a target="_blank" href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">教程</a></li>
-                <li><a target="_blank" href="https://github.com/michaelliao/awesome-python3-webapp">源码</a></li>
+                <li data-url="blogs"><a href="/" style="font-size:16px;color:#7b7171;">日志</a></li>
+                <li><a style="font-size:16px;color:#7b7171;" target="_blank" href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">教程</a></li>
+                <li><a style="font-size:16px;color:#7b7171;" target="_blank" href="https://aodabo.tech/">镜像</a></li>
+                <li><a style="font-size:16px;color:#7b7171;" target="_blank" href="https://github.com/fangfang22-oss/webapp-test">源码</a></li>
             </ul>
         </div>
         <div class="uk-navbar-right uk-margin-medium-top uk-margin-medium-bottom">
             <ul class="uk-navbar-nav">
             {% if __user__ %}
                 <li>
-                    <a href="#0">{{ __user__.name }}</a>
+                    <a href="#0" style="font-size:16px;color:#7b7171;">{{ __user__.name }}</a>
                     <div class="uk-navbar-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
+                            {% if __user__.admin %}
                             <li><a href="/manage/blogs">管理</a></li>
                             <li><a href="/signout"> 登出</a></li>
+                            {% else %}
+                            <li><a href="/signout"> 登出</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </li>
             {% else %}
-                <li><a href="/signin"> 登录</a></li>
-                <li><a href="/register"> 注册</a></li>
+                <li><a href="/signin" style="font-size:16px;color:#7b7171;"> 登录</a></li>
+                <li><a href="/register" style="font-size:16px;color:#7b7171;"> 注册</a></li>
             {% endif %}
             </ul>
         </div>
